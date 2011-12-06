@@ -1,0 +1,5 @@
+<doc xmlns:r="http://www.r-project.org">
+ <r:code>
+ x = 1:10
+ </r:code>
+</doc>

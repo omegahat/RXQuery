@@ -1,0 +1,50 @@
+<bill session="111" type="s" number="39" updated="2010-01-06T06:44:19-05:00">
+	<state datetime="2009-05-08">ENACTED:SIGNED</state>
+	<status><enacted datetime="2009-05-08" /></status>
+
+	<introduced datetime="2009-01-06"/>
+	<titles>
+		<title type="official" as="introduced">A bill to repeal section 10(f) of Public Law 93-531, commonly known as the &quot;Bennett Freeze&quot;.</title>
+	</titles>
+	<sponsor id="300071"/>
+	<cosponsors>
+		<cosponsor id="300062" joined="2009-01-06"/>
+	</cosponsors>
+	<actions>
+		<action datetime="2009-01-06"><text>Sponsor introductory remarks on measure. (CR S55)</text></action>
+		<action datetime="2009-01-06"><text>Read twice and referred to the Committee on Indian Affairs.</text></action>
+		<action datetime="2009-03-12"><text>Senate Committee on Indian Affairs discharged by Unanimous Consent.</text><reference label="consideration" ref="CR S3091"/></action>
+		<vote date="1236830400" how="by Unanimous Consent" datetime="2009-03-12" where="s" type="vote" result="pass" ><text>Passed Senate without amendment by Unanimous Consent.</text><reference label="text" ref="CR S3091"/></vote>
+		<action datetime="2009-03-13"><text>Message on Senate action sent to the House.</text></action>
+		<action datetime="2009-03-16T14:03:00-04:00"><text>Received in the House.</text></action>
+		<action datetime="2009-03-16"><text>Referred to the House Committee on Natural Resources.</text></action>
+		<action datetime="2009-04-21T15:00:00-04:00"><text>Mrs. Christensen moved to suspend the rules and pass the bill.</text></action>
+		<action datetime="2009-04-21T15:00:00-04:00"><text>Considered under suspension of the rules.</text><reference label="consideration" ref="CR H4538-4539"/></action>
+		<action datetime="2009-04-21T15:00:00-04:00"><text>DEBATE - The House proceeded with forty minutes of debate on S. 39.</text></action>
+		<vote date="1240340880" how="by voice vote" datetime="2009-04-21T15:08:00-04:00" where="h" type="vote2" result="pass" ><text>On motion to suspend the rules and pass the bill Agreed to by voice vote.</text><reference label="text" ref="CR H4538"/></vote>
+		<topresident date="1240286400" datetime="2009-04-21" ><text>Cleared for White House.</text></topresident>
+		<topresident date="1240891200" datetime="2009-04-28" ><text>Presented to President.</text></topresident>
+		<signed date="1241755200" datetime="2009-05-08" ><text>Signed by President.</text></signed>
+		<enacted number="111-18" date="1241755200" datetime="2009-05-08" type="public" ><text>Became Public Law No: 111-18.</text></enacted>
+	</actions>
+	<committees>
+		<committee code="SLIA" name="Senate Indian Affairs" activity="Referral, Discharged" />
+		<committee code="HSII" name="House Natural Resources" activity="Referral" />
+	</committees>
+	<relatedbills>
+		<bill relation="identical" session="111" type="h" number="1762" />
+	</relatedbills>
+	<subjects>
+		<term name="Native Americans"/>
+		<term name="Arizona"/>
+		<term name="Indian lands and resources rights"/>
+		<term name="Indian social and development programs"/>
+		<term name="Real estate business"/>
+	</subjects>
+	<amendments>
+
+	</amendments>
+	<summary>
+	5/8/2009--Public Law. (This measure has not been amended since it was introduced. The summary of that version is repeated here.) Amends federal law to repeal the requirement regarding the freeze on the development of lands in litigation under the Navajo-Hopi Settlement Act of 1974. 
+	</summary>
+</bill>

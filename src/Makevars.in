@@ -1,0 +1,2 @@
+PKG_CPPFLAGS=@ZORBA_INCLUDES@
+PKG_LIBS=@ZORBA_LIB_DIR@ -lzorba_simplestore

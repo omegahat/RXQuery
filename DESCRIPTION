@@ -1,0 +1,13 @@
+Package: RXQuery
+Version: 0.3-0
+Title: Bi-directional interface to an XQuery engine
+Description: This is an expirement in interfacing to 
+  Zorba, the XQuery engine.  We are exploring how
+  to a) embed XQuery in R, and b) export R functions
+  for use in XQuery commands.
+Author: Duncan Temple Lang 
+Depends: methods
+Imports: XML
+Maintainer: Duncan Temple Lang <duncan@wald.ucdavis.edu>
+License: BSD
+

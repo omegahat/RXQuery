@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<article xmlns:r="http://www.r-project.org"
+         xmlns:xi="http://www.w3.org/2003/XInclude">
+
+<articleinfo>
+
+<title></title>
+
+<author><firstname>Duncan</firstname><surname>Temple Lang</surname>
+  <affiliation><orgname>University of California at Davis</orgname>
+               <orgdiv>Department of Statistics</orgdiv>
+  </affiliation>
+</author>
+</articleinfo>
+
+<section>
+<title></title>
+
+<para>
+
+We can use XQilla (http://xqilla.sourceforge.net/HomePage)
+or Zorba as XQuery implementations. There is a common
+API for these two. We haven't used that.
+
+</para>
+
+
+<para>
+How do people typically interact with XQuery?
+a stand-alone shell? language bindings (Python, Ruby)?
+</para>
+<para>
+Do people tend to use other languages  with XPath
+and then manipulate the nodes to create the content they want.
+Or use XSL?
+In other words, do people build XML content using XQuery?
+</para>
+
+<para>
+What sort of functionality do you want from R,
+e.g. element-wise functions or aggregate functions.
+</para>
+
+
+<para>
+How can we deal with a) R's lack of type,
+b) objects (S3 and S4).
+</para>
+
+
+<para>
+
+<ul>
+<li>We can embed XQuery in R.</li>
+<li>Then we can perform queries from within R</li>
+<li>We can register R functions with a context</li>
+<li>Those functions can be invoked within XQuery expressions.</li>
+</ul>
+</para>
+
+
+
+</section>
+
+<section>
+<title></title>
+
+<para>
+We want the R functions that are exported as externals to 
+identify if they want the context of the query (or the query
+itself). This would allow them access to the variables,
+other functions, etc.
+See addQuery.
+
+</para>
+<para>
+R functions should be able to call XQuery functions
+if necessary, i.e. user defined ones.
+</para>
+</section>
+</article>

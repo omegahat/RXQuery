@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<?xml-stylesheet type="text/xsl" href="../../../../../Classes/StatComputing/XDynDocs/inst/XSL/OmegahatXSL/Todo.xsl" ?> 
+
+<topics xmlns:r="http://www.r-project.org">
+
+<topic>
+
+<title>General</title>
+
+<items>
+
+<item>
+.nodes and ... in createCollection.
+</item>
+
+
+<item>
+Check tests/dynError.R and why it is exiting the R session
+even though we should catch the R-generated error from
+callR in the xquery() C code.
+tests/dynError.R 
+</item>
+
+<item status="done">
+tests/separate.R - failed to acquire a RCLock. Memory problem.
+         If don't use R_context_compileQuery, all is fine.
+<br/>
+Problem was not incrementing the reference count on the XQuery_t/*
+</item>
+
+<item>
+How do we throw an exception of a class derived from the zorba exceptions.
+</item>
+
+<item status="low">
+xml operations in dyn.R
+<br/>
+Need to define as S3 methods and export as S3 methods.
+Can't use setMethod() and exportMethods() in the NAMESPACE.
+We will move the XML package to S4 classes sometime in the future.
+</item>
+
+<item>
+printPlan() is having difficulties with \032 at the end of the string
+and not being interpreted as an end of string.
+</item>
+
+<item status="q">
+Find out how and test running with R as an external function provider.
+i.e. how does zorba find these add-ons.
+<br/>
+Not sure there is a mechanism for Zorba generally in place at present.
+</item>
+
+<item status="done">
+When we evaluate a query w/o registering functions, let 
+the caller specify whether to register the R external module
+and find functions dynamically.
+
+<r:code>
+xquery(' 1 + R:rpois(1, 5) ', rnorm, prefix = 'declare namespace R = "urn:R"; declare function R:rpois($n, $lambda) external;')
+</r:code>
+See tests/dynLookup.R
+
+
+</item>
+
+<item>
+When we register functions, do we generate and keep the XQuery code declaring
+those.
+</item>
+
+<item status="low">
+Figure out how to integrate XQuery language into R,
+or map R commands into XQuery commands like we did for SQL.
+e.g.
+
+<r:code>
+with(collection, bill/sponsor/@id) #
+collection[bill/sponsor/at(id)]  # will parse.
+</r:code>
+What about where.
+
+<br/>
+What about being able to specify the document/collection 
+in the query as an R variable
+rather than pasting the string.
+
+<note>
+We get a DynamicContext from a compiled zorba::XQuery object
+via the function makeDynamicContext().
+Then we can set the variables, document, default collection, 
+context item, etc.
+The context item is the value of . in an XPath-lie expression.
+So the context item is where we work from. Recall
+that the XQuery expressions don't move the context.
+<br/>
+We can set the default collection and that means we can use
+collection() with no argument in our string query.
+</note>
+
+</item>
+
+
+
+<item status="q">
+How can we perform a query and store the result in R and then 
+use it in a subsequent query.
+<br/>
+Perhaps keep the Item objects from the getQueryResults
+as an zorba::ItemList.
+We can break the xquery() function into single R calls
+to the different components, i.e. 
+get a context, compile the query, getQueryResults.
+<br/>
+Facilities are now there to do this.
+<br/>
+We can define a variable with the Item as the value.
+If we do this in xquery via the ... or a .vars list()
+we can assign the value in the context of the expressions.
+</item>
+
+<item status="q">
+How do we know when an Item is a QName and we can get the prefix and namespace.
+</item>
+
+<item>
+Add more calls to makeXMLNodeRef() when returning a zorba::Item object,
+e.g. 
+Or call convertItemToR().
+<br/>
+Return (certain types of)  Item objects as references.
+
+<br/>
+Allow an XML node to be returned as an Item.
+Then have all the relevant methods for it.
+<br/>
+Introduced new classes for this. Now need methods.
+Many done.
+</item>
+
+<item>
+Garbage collection and finalizers.
+</item>
+
+<item status="fix">
+Synchronize the names and class definitions for zorba objects,
+e.g. StaticContext and zorba::StaticContext.
+<br/>
+Done some of them.
+</item>
+
+<item status="long-term">
+Provide bindings to the engine so that we don't have to use
+the XQuery language to perform operations
+and so that we can use objects outside of a stringified query.
+<br/>
+For example, create collections in the store directly
+with R calls. 
+create-collection(name, node1, node2, ...)
+where node1, node2, etc. are actual node objects in R rather than strings
+as part of the query string.
+</item>
+
+<item>
+Use RGCCTU to generate bindings.
+</item>
+
+<item status="low">
+Use an error handler zorba::ErrorHandler object.
+<br/>
+registerErrorHandler in XQuery class
+or 
+createQuery(q,  errorHandler) in zorba engine.
+<br/>
+Implement an errorHandler C++ class with methods implemented with R functions.
+</item>
+
+
+
+
+
+
+
+
+
+
+<item status="done">
+untypedAtomic in the conversion in marshalling from XQuery to R.
+<br/>
+It is a string
+"A loosely typed string. Can be cast as needed to numbers and other types. Implements the xs:untypedAtomic type of XPath/XQuery, which use it to represent attribute and text values of unvalidated XML. "
+from http://www.gnu.org/software/kawa/api/gnu/kawa/xml/UntypedAtomic.html
+</item>
+
+<item status="done">
+Example for registering functions with new setup.
+<br/>
+tests/rfuncs.R
+tests/withContexts.R
+</item>
+
+<item status="done">
+Make the context/query available to the R functions
+when we register them.
+<br/>
+This is now done with the deterministic flag for a function.
+<br/>
+Make this a field in the class. 
+<br/>
+How do we set the XQuery_t on a function when we have to register
+them before creating the query. 
+We have the context.
+</item>
+
+<item status="done">
+When creating XML node objects in marshal.cpp, create text as XMLTextNode.
+</item>
+
+<item status="done">
+Understand how a document is specified as the target of operation.
+<br/>
+If we set the baseURI (which we do now), we can use the
+doc() function in our XQuery expression.
+</item>
+
+
+<item status="done">
+Convert anyType.
+
+<r:code><![CDATA[
+xquery('<items>{for $i in (1,2,3,4) return <item>{$i}</item>}</items>')
+]]></r:code>
+
+isNode() is true, and we have to allow for different  types.
+</item>
+
+<item status="done">
+Simple query in tests/collections.R works most of the time
+but gives an error after regular number of calls.
+But the next call works fine and we don't seem to have
+memory corruption.
+
+<r:code>
+qry = 'for $ti in doc("file:///Users/duncan/Data/GovTrack/bills/h1.xml")//title
+        return
+         <intro>{$ti/text()}</intro>'
+xquery(qry)
+</r:code>
+Gives 
+<r:output><![CDATA[
+Error in xquery(qry) : 
+  SET_VECTOR_ELT() can only be applied to a 'list', not a 'closure'
+]]></r:output>
+on occasion and 34 elements on many others.
+<br/>
+Looks like a PROTECT problem when we reset the length (SET_LENGTH)
+but didn't reprotect.
+</item>
+
+<item status="done">
+Find out about collections.
+<br/>
+Specifically how to load a collection of files.
+import-catalog() doesn't seem to work the way I expect. See tests/collections.R.
+<br/>
+Create a collection via the xmlDataManager with a name (URI).
+Then call loadDocument or loadDocumentFromUri.
+Then how do we refer to this collection - by the collections URI used when creating it? e.g. doc('myURI').
+No, with collection('myURI').
+</item>
+
+<item status="done">
+Implement xquery() with functions that are local to the call.
+<br/>
+Register the functions and then unregister them.
+If can create our own context, we can register them.
+<br/>
+See tests/rfuncsRepeated.R
+<br/>
+See 
+
+<r:code>
+query = 'declare namespace R = "urn:R" ; 
+         declare function R:nchar($x) external; 
+         declare function R:rnorm($n) external ; 
+         R:nchar("a string with 27 characters") + R:rnorm(1)'
+replicate(2,  i = xquery( query, rnorm, "nchar"))
+</r:code>
+We are creating a new context each time and registering the functions
+anew each time. 
+</item>
+
+</items>
+</topic>
+</topics>

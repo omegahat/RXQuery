@@ -1,0 +1,41 @@
+Version 0.3-0
+
+  *  Methods for working with XQuery objects.
+
+  *  Changed class of XQuery to zorba::XQuery.
+
+  *  added methods for creating, deleting and accessing collections in the data manager
+
+  *  some garbage collection implemented
+
+  *  support for returning zorba::Item objects as references, e.g. XML nodes.
+
+  *  classes and methods for zorba::Item XML nodes, e.g. xmlAttrs, xmlName, getChildren, ...
+
+
+Version 0.2-1
+
+  *  Simple bug fixes 
+
+Version 0.2-0
+
+  *  Changes to be compatible with Zorba-1.0.0
+
+  *  xquery() doesn't take a document argument
+
+  *  register functions with a module, not within xquery.
+     Still possible to register for an xquery() call.
+
+  *  Functions can be registered with deterministic = FALSE in which case
+     they will be passed a static and dynamic context object as separate 
+     parameters.
+
+  *  Several examples/tests
+
+  *  loadDocument() function 
+
+  *  createCollection() function and methods for zorba::Collection class.
+
+  *  Interface to zorba::Item objects
+
+  *  other extensions....

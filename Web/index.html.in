@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<link rel="stylesheet" href="../OmegaTech.css">
+<title>@PKG_NAME@</title>
+</head>
+
+<body>
+<h1>@PKG_NAME@</h1>
+<p align=right><a href="@TAR_FILE@">@TAR_FILE@</a> (@DATE@)</p>
+
+This package provides facilities to use the Zorba XQuery engine within
+R and also to allow R functions to be called as part of an XQuery
+expression.  <a href="http://www.w3.org/TR/xquery">XQuery</a> is a flexible and powerful language for working
+with XML documents.  It allows one to perform database-like queries
+and to manipulate the results in a script-like language.
+By enhancing the scripting facilities with R, we get the ability
+to work with large data in a database-like environment
+while combining a multitude of statistical functionality
+and a general programming language.
+By incorporating XQuery into R, we can facilitate
+accessing data across multiple XML documents.
+
+<p> Data that come in XML (including XHTML) include Wikipedia,
+Data.gov, KML, PMML...  R help files could also be either written in
+XML (e.g. RDocbook) or converted to this format and then queried
+dynamically.  Being able to query these bodies of data and being able to
+construct new content efficiently is valuable.
+
+<p>
+Furthermore, when working with large XML documents,
+XQuery can be significantly faster in extracting content.
+The combination of XQuery and callbacks to R functions
+can be quite effective.
+
+
+<h2>Software</h2>
+
+The source for the package is <a href="@TAR_FILE@">@TAR_FILE@</a>.
+
+
+<h2>Documentation</h2>
+<dl>
+  <dt>
+  <li>See the tests in the <a href="RXQuery/tests">tests/</a> directory.
+  <dd>
+
+  <dt>
+  <li> <a href="Changes">Change log</a>
+  <dd>
+</dl>
+
+
+
+<hr>
+<address><a href="http://www.stat.ucdavis.edu/~duncan">Duncan Temple Lang</a>
+<a href=mailto:duncan@wald.ucdavis.edu>&lt;duncan@wald.ucdavis.edu&gt;</a></address>
+<!-- hhmts start -->
+Last modified: Wed Mar 24 09:54:08 PDT 2010
+<!-- hhmts end -->
+</body> </html>

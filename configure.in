@@ -1,0 +1,23 @@
+AC_INIT(src/Makevars.in)
+
+
+AC_PROG_CXX
+
+CPPFLAGS="$CPPFLAGS -I/usr/local/include/zorba"
+
+dnl Need to get this to compile with C++ compiler.
+
+AC_LANG_CPLUSPLUS
+ac_ext=cc
+
+AC_TRY_COMPILE([
+#include <zorba/zorba.h>
+], [
+zorba::Zorba *z;
+],
+[echo "Found zorba header zorba/zorba.h"; FOUND_ZORBA="yes"],
+[echo "Failed to find zorba/zorba.h"; exit 2]
+)
+
+
+

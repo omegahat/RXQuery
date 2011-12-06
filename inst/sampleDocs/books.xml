@@ -1,0 +1,1 @@
+<books><book id="foo" xxx="other">Book 1</book><book>Book 2</book><book><title>Catch 22</title><author>A.N. Other</author></book></books>

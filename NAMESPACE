@@ -1,0 +1,60 @@
+#import(methods)
+import(XML)
+export(xmlTextNode)  # function from XML that we use in the C code.
+#export(xmlName, xmlAttrs, xmlRoot)
+
+useDynLib(RXQuery)
+export(xquery)
+
+export(zorba, makeContext)
+
+exportClasses(Zorba)
+
+export(setVariable, setVariableAsDocument)
+exportMethods(setVariable) #, setVariableAsDocument)
+
+exportClasses(zorba::XMLDataManager)
+export(xmlDataManager)
+export(loadDocument)
+
+
+export(zorbaVersion)
+export(zorbaPOSIXct)
+
+#export(compileQuery, makeDynamicContext, setVariableAsDocument, getQueryResults)
+#export(compileQueryCtx)
+
+export(itemFactory)
+
+
+export(getEnvironment, registerFunctions, createModule)
+
+exportClasses("zorba::ItemFactory", "zorba::Item",
+               "zorba::StaticContext", "zorba::DynamicContext",
+               "zorba::Collection") # , StaticContext)
+
+export(createCollection, addNodes, getName, size, deleteCollection, getCollection)
+exportMethods(addNodes, getName, size)
+exportMethods(length)
+
+
+export(getNodeKind, convertItemToR)
+export(getStringValue, isNaN, isNull, getChildren, getNodeName, getNamespace, getLocalName, isAtomic, isNode, getPrefix)
+exportMethods(getStringValue, isNaN, isNull, getChildren, getNodeName, getNamespace, getLocalName, isAtomic, isNode, getPrefix)
+exportMethods("coerce")
+
+#exportMethods(xmlRoot, xmlName, xmlAttrs)
+S3method(xmlRoot, ZorbaXMLDocument)
+S3method(xmlName, ZorbaXMLElementNode)
+S3method(xmlAttrs, "zorba::Item")
+S3method(xmlAttrs, ZorbaXMLElementNode)
+
+
+export(compileXQuery, getQueryResults, status, setTimeout, getDocLoadingTime, printPlan)
+exportMethods(compileXQuery, status, setTimeout)
+export(setDefaultCollection)
+
+export(makeDynamicContext)
+
+
+

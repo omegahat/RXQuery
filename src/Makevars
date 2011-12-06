@@ -1,0 +1,2 @@
+PKG_CPPFLAGS=-g -I/usr/local/include/zorba
+PKG_LIBS=-L/usr/local/lib -lzorba_simplestore
